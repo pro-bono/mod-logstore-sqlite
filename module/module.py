@@ -211,7 +211,7 @@ class LiveStatusLogStoreSqlite(BaseModule):
 
         self.execute("CREATE INDEX IF NOT EXISTS logs_time ON %s (time)" % table_name)
         self.execute("CREATE INDEX IF NOT EXISTS logs_host_name ON %s (host_name)" % table_name)
-        self.execute("PRAGMA journal_mode={}".format(self.journal_mode))
+        self.execute("PRAGMA journal_mode={0}".format(self.journal_mode))
         self.commit()
 
     def commit_and_rotate_log_db(self):
